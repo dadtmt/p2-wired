@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { Container, Jumbotron, Row, Col } from "reactstrap"
 import "./App.css"
 import Movie from "./Movie"
+import SearchMovies from "./SearchMovies"
 
 class App extends Component {
   constructor() {
@@ -24,6 +25,11 @@ class App extends Component {
           <hr />
           <p className="lead">List and bookmark your favorites movies.</p>
         </Jumbotron>
+        <Row>
+          <Col>
+            <SearchMovies />
+          </Col>
+        </Row>
         <Row>
           <Col xs="3">
             <Movie {...this.state.selectedMovie} />
