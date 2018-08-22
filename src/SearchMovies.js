@@ -7,13 +7,17 @@ class SearchMovies extends Component {
     this.state = {
       s: ""
     }
+    this.handleSearchChange = this.handleSearchChange.bind(this)
+  }
+  handleSearchChange(event) {
+    this.setState({ s: event.target.value })
   }
   render() {
     return (
       <Form>
         <FormGroup>
           <Label for="searchMovies">Search movies</Label>
-          <Input value={this.state.s} />
+          <Input value={this.state.s} onChange={this.handleSearchChange} />
         </FormGroup>
       </Form>
     )
