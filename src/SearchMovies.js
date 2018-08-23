@@ -9,7 +9,7 @@ import {
   Input,
   Row
 } from "reactstrap"
-import { fetchWildMovies } from "./api/movies"
+import { fetchSearchMovies, fetchWildMovies } from "./api/movies"
 import ResultMovie from "./ResultMovie"
 
 class SearchMovies extends Component {
@@ -23,6 +23,9 @@ class SearchMovies extends Component {
   }
   handleSearchChange(event) {
     this.setState({ s: event.target.value })
+    fetchSearchMovies(event.target.value).then(
+      data => (data.Search ? this.setState({ movies: data.Search }) : [])
+    )
   }
   componentDidMount() {
     fetchWildMovies().then(data => this.setState({ movies: data.Search }))
