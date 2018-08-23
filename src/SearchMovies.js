@@ -15,7 +15,7 @@ class SearchMovies extends Component {
     this.setState({ s: event.target.value })
   }
   componentDidMount() {
-    fetchWildMovies().then(movies => this.setState({ movies }))
+    fetchWildMovies().then(data => this.setState({ movies: data.Search }))
   }
   render() {
     return (
