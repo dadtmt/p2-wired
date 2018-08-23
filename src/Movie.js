@@ -9,7 +9,7 @@ import {
   CardText
 } from "reactstrap"
 
-const Movie = ({ Plot, Poster, Title }) => (
+const Movie = ({ addToFavs, Plot, Poster, Title }) => (
   <Card>
     {Poster !== "N/A" && <CardImg top src={Poster} />}
     <CardBody>
@@ -17,7 +17,17 @@ const Movie = ({ Plot, Poster, Title }) => (
       <CardText>{Plot}</CardText>
     </CardBody>
     <CardFooter className="d-flex justify-content-center">
-      <Button>Add to your list</Button>
+      <Button
+        onClick={() =>
+          addToFavs({
+            Plot,
+            Poster,
+            Title
+          })
+        }
+      >
+        Add to your list
+      </Button>
     </CardFooter>
   </Card>
 )

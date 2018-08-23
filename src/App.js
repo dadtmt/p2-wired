@@ -10,11 +10,18 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
+      favs: [],
       loading: false,
       selectedMovie: {}
     }
+    this.handleAddToFavs = this.handleAddToFavs.bind(this)
     this.handleSelectMovie = this.handleSelectMovie.bind(this)
   }
+
+  handleAddToFavs(movie) {
+    this.setState(prevState => ({ favs: [...prevState.favs, movie] }))
+  }
+
   handleSelectMovie(id) {
     this.setState({
       loading: true
@@ -23,6 +30,7 @@ class App extends Component {
       this.setState({ selectedMovie: movie, loading: false })
     )
   }
+
   render() {
     return (
       <Container>
@@ -43,7 +51,10 @@ class App extends Component {
                 </div>
               ) : (
                 Object.keys(this.state.selectedMovie).length > 0 && (
-                  <Movie {...this.state.selectedMovie} />
+                  <Movie
+                    {...this.state.selectedMovie}
+                    addToFavs={this.handleAddToFavs}
+                  />
                 )
               )}
             </div>
