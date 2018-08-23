@@ -1,20 +1,27 @@
 import React, { Component } from "react"
-import { Container, Jumbotron, Row, Col } from "reactstrap"
+import { Card, CardImg, Container, Jumbotron, Row, Col } from "reactstrap"
 import "./App.css"
 import Movie from "./Movie"
 import SearchMovies from "./SearchMovies"
 import { fetchMovieById } from "./api/movies"
+import loader from "./ajax-loader.gif"
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
+      loading: false,
       selectedMovie: {}
     }
     this.handleSelectMovie = this.handleSelectMovie.bind(this)
   }
   handleSelectMovie(id) {
-    fetchMovieById(id).then(movie => this.setState({ selectedMovie: movie }))
+    this.setState({
+      loading: true
+    })
+    fetchMovieById(id).then(movie =>
+      this.setState({ selectedMovie: movie, loading: false })
+    )
   }
   render() {
     return (
@@ -30,7 +37,13 @@ class App extends Component {
           </Col>
           <Col xs="4">
             <div className="sticky-top">
-              <Movie {...this.state.selectedMovie} />
+              {this.state.loading ? (
+                <div className="text-center">
+                  <img alt="loading" src={loader} style={{ width: "30px" }} />
+                </div>
+              ) : (
+                <Movie {...this.state.selectedMovie} />
+              )}
             </div>
           </Col>
         </Row>
