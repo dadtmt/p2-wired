@@ -51,7 +51,7 @@ class SearchMovies extends Component {
         <Row>
           <CardColumns>
             {this.state.movies.map(movie => (
-              <Card>
+              <Card key={movie.imdbID}>
                 <CardImg src={movie.Poster} />
                 <CardBody>
                   <CardTitle>{movie.Title}</CardTitle>
