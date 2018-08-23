@@ -25,13 +25,13 @@ class App extends Component {
           <p className="lead">List and bookmark your favorites movies.</p>
         </Jumbotron>
         <Row>
-          <Col>
+          <Col xs="8">
             <SearchMovies onMovieSelect={this.handleSelectMovie} />
           </Col>
-        </Row>
-        <Row>
-          <Col xs="3">
-            <Movie {...this.state.selectedMovie} />
+          <Col xs="4">
+            <div className="sticky-top">
+              <Movie {...this.state.selectedMovie} />
+            </div>
           </Col>
         </Row>
       </Container>
