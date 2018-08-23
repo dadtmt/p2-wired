@@ -3,6 +3,7 @@ import { Container, Jumbotron, Row, Col } from "reactstrap"
 import "./App.css"
 import Movie from "./Movie"
 import SearchMovies from "./SearchMovies"
+import { fetchMovieById } from "./api/movies"
 
 class App extends Component {
   constructor() {
@@ -16,6 +17,10 @@ class App extends Component {
           "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
       }
     }
+    this.handleSelectMovie = this.handleSelectMovie.bind(this)
+  }
+  handleSelectMovie(id) {
+    fetchMovieById(id).then(movie => this.setState({ selectedMovie: movie }))
   }
   render() {
     return (
@@ -27,7 +32,7 @@ class App extends Component {
         </Jumbotron>
         <Row>
           <Col>
-            <SearchMovies />
+            <SearchMovies onMovieSelect={this.handleSelectMovie} />
           </Col>
         </Row>
         <Row>

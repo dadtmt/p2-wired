@@ -49,7 +49,11 @@ class SearchMovies extends Component {
         <Row>
           <CardColumns>
             {this.state.movies.map(movie => (
-              <ResultMovie key={movie.imdbID} {...movie} />
+              <ResultMovie
+                key={movie.imdbID}
+                {...movie}
+                onSelect={this.props.onMovieSelect}
+              />
             ))}
           </CardColumns>
         </Row>
