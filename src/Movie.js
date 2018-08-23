@@ -1,5 +1,13 @@
 import React from "react"
-import { Card, CardImg, CardBody, CardTitle, CardText } from "reactstrap"
+import {
+  Button,
+  Card,
+  CardImg,
+  CardBody,
+  CardFooter,
+  CardTitle,
+  CardText
+} from "reactstrap"
 
 const Movie = ({ Plot, Poster, Title }) => (
   <Card>
@@ -8,6 +16,9 @@ const Movie = ({ Plot, Poster, Title }) => (
       <CardTitle>{Title}</CardTitle>
       <CardText>{Plot}</CardText>
     </CardBody>
+    <CardFooter className="d-flex justify-content-center">
+      <Button>Add to your list</Button>
+    </CardFooter>
   </Card>
 )
 

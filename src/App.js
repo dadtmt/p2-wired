@@ -42,7 +42,9 @@ class App extends Component {
                   <img alt="loading" src={loader} style={{ width: "30px" }} />
                 </div>
               ) : (
-                <Movie {...this.state.selectedMovie} />
+                Object.keys(this.state.selectedMovie).length > 0 && (
+                  <Movie {...this.state.selectedMovie} />
+                )
               )}
             </div>
           </Col>
