@@ -3,7 +3,7 @@ import { Card, CardBody, CardImg, CardTitle } from "reactstrap"
 
 const ResultMovie = ({ Poster, Title }) => (
   <Card>
-    <CardImg src={Poster} />
+    {Poster !== "N/A" && <CardImg src={Poster} />}
     <CardBody>
       <CardTitle>{Title}</CardTitle>
     </CardBody>
