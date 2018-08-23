@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Card, CardImg, Container, Jumbotron, Row, Col } from "reactstrap"
+import { Container, Jumbotron, Row, Col } from "reactstrap"
 import "./App.css"
 import Movie from "./Movie"
 import SearchMovies from "./SearchMovies"
