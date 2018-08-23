@@ -1,12 +1,12 @@
 import React from "react"
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap"
 
-const Movie = ({ plot, poster, title }) => (
+const Movie = ({ Plot, Poster, Title }) => (
   <Card>
-    <CardImg top src={poster} />
+    <CardImg top src={Poster} />
     <CardBody>
-      <CardTitle>{title}</CardTitle>
-      <CardSubtitle>{plot}</CardSubtitle>
+      <CardTitle>{Title}</CardTitle>
+      <CardSubtitle>{Plot}</CardSubtitle>
     </CardBody>
   </Card>
 )
