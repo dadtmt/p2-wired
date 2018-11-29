@@ -1,0 +1,2 @@
+export const MOVIES_RECEIVED = "MOVIES_RECEIVED";
+export const FETCH_MOVIES = "FETCH_MOVIES";
