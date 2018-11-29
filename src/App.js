@@ -5,6 +5,7 @@ import Movie from "./Movie"
 import SearchMovies from "./SearchMovies"
 import { fetchMovieById } from "./api/movies"
 import loader from "./ajax-loader.gif"
+import SearchMoviesContainer from "./containers/SearchMoviesContainer"
 
 class App extends Component {
   constructor() {
@@ -41,7 +42,7 @@ class App extends Component {
         </Jumbotron>
         <Row>
           <Col xs="8">
-            <SearchMovies onMovieSelect={this.handleSelectMovie} />
+            <SearchMoviesContainer />
           </Col>
           <Col xs="4">
             <div className="sticky-top">

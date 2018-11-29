@@ -1,6 +1,6 @@
 import { MOVIES_RECEIVED } from "../actions/actionTypes"
 
-const moviesReducer = (previousState, action) => {
+const moviesReducer = (previousState = [], action) => {
   switch (action.type) {
     case MOVIES_RECEIVED:
       return action.movies

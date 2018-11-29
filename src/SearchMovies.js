@@ -16,19 +16,20 @@ class SearchMovies extends Component {
   constructor() {
     super()
     this.state = {
-      movies: [],
       s: ""
     }
     this.handleSearchChange = this.handleSearchChange.bind(this)
   }
   handleSearchChange(event) {
     this.setState({ s: event.target.value })
-    fetchSearchMovies(event.target.value).then(
-      data => (data.Search ? this.setState({ movies: data.Search }) : [])
+    fetchSearchMovies(event.target.value).then(data =>
+      data.Search ? this.setState({ movies: data.Search }) : []
     )
   }
   componentDidMount() {
-    fetchWildMovies().then(data => this.setState({ movies: data.Search }))
+    this.props.fetchMovies()
+    fetchWildMovies().then(data => this.props.moviesReceived(data.Search))
+    //fetchWildMovies().then(data => this.setState({ movies: data.Search }))
   }
   render() {
     return (
@@ -48,7 +49,7 @@ class SearchMovies extends Component {
         </Row>
         <Row>
           <CardColumns>
-            {this.state.movies.map((movie, index) => (
+            {this.props.movies.map((movie, index) => (
               <ResultMovie
                 key={index}
                 {...movie}
